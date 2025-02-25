@@ -3,8 +3,8 @@
 
 ## Write a short comment describing this function
 
-makeCacheMatrix <- function(x = matrix()) {
-inv <- NULL 
+makeCacheMatrix <- function(x = numeric()){
+  inv <- NULL 
   
   set <- function(y) {
     x <<- y
@@ -21,12 +21,10 @@ inv <- NULL
        setInverse = setInverse,
        getInverse = getInverse)
 }
-
-
-## 这个函数缓存了矩阵的逆
+# makeCacheMatrix 函数用于创建一个特殊的矩阵对象，该对象存储一个矩阵及其缓存的逆矩阵。
 
 cacheSolve <- function(x, ...) {
-        inv <- x$getInverse()
+  inv <- x$getInverse()
   
   if(!is.null(inv)) {
     message("getting cached data")
@@ -40,3 +38,4 @@ cacheSolve <- function(x, ...) {
   
   inv
 }
+# cacheSolve 函数用于计算并返回 makeCacheMatrix 创建的矩阵对象的逆矩阵，如果逆矩阵已缓存则直接返回缓存值。
